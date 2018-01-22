@@ -1,0 +1,16 @@
+topic: ~interactive_media keep repeat ["interaktive medien" medieninformatik] 
+
+u: ([beruf berufe arbeit (abschluss * arbeiten)]) Du kannst in vielen Themenfeldern arbeiten, zum Beispiel 2D-Animation, 3D-Animation, 
+Computerspiele, Navigationssysteme, Datenmanagement, Softwareentwicklung und Internet- und Mobilanwendungen.
+
+u: ([bewerbung bewerbungsfrist frist bewerben]) Du kannst dich vom 2. Mai bis zum 15 Juni bewerben, also lass dir Zeit!
+
+u: ([projekt projekte arbeiten semesterarbeiten abschlussarbeiten]) Ein Projekt war die Entwicklung einer Zeitmaschine für die Augsburger Puppenkiste zu entwerfen.
+Aber ich leite dich mal zum <a href="https://showcase.hs-augsburg.de/">Showcase</a> von Interaktive Medien weiter. <br> <img src="pictures/puppenkiste.jpg">
+
+u: ("interaktive medien" medieninformatik) Interaktive Medien ist ein Studiengang, 
+in dem du die Grundlagen von Gestaltung und Informatik kennen lernen kannst.
+
+u: (!$used_introduction_ia) Interaktive Medien ist ein Studiengang, 
+in dem du die Grundlagen von Gestaltung und Informatik kennen lernen kannst. $used_introduction_ia=true
+

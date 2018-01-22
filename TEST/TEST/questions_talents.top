@@ -1,0 +1,41 @@
+topic: ~question_talents keep repeat nostay [] # leer damit topic nicht aus Versehen gefunden wird, nostay
+
+# (["nicht wissen" "keine ahnung" mhm "kein plan" ehm])
+u: ($economics=true $tech=true $logicalThinking=true ) $study_result=Wirtschaftsinformatik 
+u: ($economics=true $tech=true $languages=true) $study_result=Wirtschaftsingeneurwesen
+u: ($economics=true $tech=false $languages=true ) $study_result=International_Mangement
+u: ($economics=true $tech=false $languages=false ) $study_result=BWL
+u: ($spatialThinking=true $design=true $tech=true ) $study_result=Architektur
+u: ($logicalThinking=true $design=true) $study_result=Interaktive Medien
+u: ($logicalThinking=true $tech=true $design=false $economics=false) $study_result=Informatik
+u: ($design=true $logicalThinking=false $spatialThinking=false) $study_result=Kommunikationsdesign
+
+u: ($study_result) Dann habe ich etwas für dich: $study_result. Denkst du das passt zu dir?
+	a: (~yes) Sehr gut. Hast du noch weitere Fragen?
+	a: (~no) Oh, schade. Willst du die Fragen nocheinmal beantworten?
+		b: (~yes) Alles klar. $economics=null $tech=null $logicalThinking=null $design=null $languages=null $spatialThinking=null $study_result=null ^respond(~question_talents)
+		b: (~no) Dann solltest du vielleicht einen Termin bei der Studienberatung vereinbaren.
+
+u: (!$economics !$tech) Interessierst du dich eher für Wirtschaft oder Technik? Oder sogar für beides?
+	a: (wirtschaft) $economics=true $tech=false Wirtschaft also. ^respond(~question_talents) # !~not [wirtschaft "das erste" ersteres
+	a: (technik) $economics=false $tech=true Technik also. ^respond(~question_talents) # [technik "das zweite" letzteres]
+	a: ([beide alles]) $economics=true $tech=true Beides also. ^respond(~question_talents)
+	a: (["gar nichts" keins "beides nicht"]) $economics=false $tech=false Keins von beidem also. ^respond(~question_talents)
+	
+u: (!$logicalThinking !$design) Wie stehts mit Gestaltung und logischem Denken? Was liegt dir eher?
+	a: (gestaltung) $design=true $logicalThinking=false Gestaltung, ok. ^respond(~question_talents) 
+	a: (logisches Denken) $logicalThinking=true $design=false Logisches Denken, ok. ^respond(~question_talents) 
+	a: ([beide alles]) $logicalThinking=true $design=true Beides, ok. ^respond(~question_talents)
+	a: (["gar nichts" keins "beides nicht"]) $logicalThinking=false $design=false Beides nicht, ok. ^respond(~question_talents)
+
+u: (!$languages !$spatialThinking) Macht es dir Spaß, eine Sprache zu Lernen? Oder hast du ein gutes räumliches Vorstellungsvermögen?
+	a: (sprache) $languages=true $spatialThinking=false Ein Sprach-Talent, soso. ^respond(~question_talents) # !~not [wirtschaft "das erste" ersteres
+	a: (räumliches Vorstellungsvermögen) $languages=false $spatialThinking=true Räumliches Vorstellungsvermögen, soso. ^respond(~question_talents) # [technik "das zweite" letzteres]
+	a: ([beide alles]) $languages=true $spatialThinking=true Beides, soso. ^respond(~question_talents)
+	a: (["gar nichts" keins "beides nicht"]) $languages=false $spatialThinking=false Keins von beidem, soso. ^respond(~question_talents)
+
+
+
+
+
+1

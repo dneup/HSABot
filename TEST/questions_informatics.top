@@ -1,0 +1,70 @@
+topic: ~questions_informatics repeat []
+
+u: ($creative $design $economics $informatics=3 $tech>=1) $study_result= Informatik
+u: ($creative $design $informatics=3 $tech>=1 $economics>=2) $study_result= Wirtschaftsinformatik
+u: ($economics $tech $informatics=3  $design>=2 $creative>=2) $study_result= Interaktive_Medien
+
+
+u: ($study_result=Informatik [$design>=1 $creative>=1]) $study_result_2= Interaktive_Medien 
+u: ($study_result=Informatik $economics>=1) $study_result_2= Wirtschaftsinformatik
+
+u: ($study_result=Wirtschaftsinformatik $tech>=2) $study_result2= Informatik
+u: ($study_result=Wirtschaftsinformatik  $tech<=1) $study_result_2= BWL
+
+u: ($study_result=Interaktive_Medien $tech>=1) $study_result_2= Informatik
+
+
+u: TECH ($informatics=3 !$tech) Wie sehr interessierst du dich für Technik? (Sehr, geht so, wenig, gar nicht) 
+	#! sehr
+	a: (~like_strong) $tech=3
+	#! geht
+	a: (~like_ok) $tech=2
+	#! Ein bisschen
+	a: (~like_a_bit) $tech=1
+	#! gar nicht
+	a: (~like_not) $tech=0
+	#! Weiß ich nicht
+	a: () Das hab ich nicht ganz verstanden. ^retry(TOPRULE)
+
+u: ECONOMICS ($informatics=3 !$economics) Und wie stehts mit Wirtschaft? Wie sehr interessierst du dich dafür?
+	#! ziemlich.
+	a: (~like_strong) $economics=3
+	#! mittel
+	a: (~like_ok) $economics=2
+	#! wenig
+	a: (~like_a_bit) $economics=1
+	#! null
+	a: (~like_not) $economics=0
+	a: () Das hab ich nicht ganz verstanden. ^retry(TOPRULE)
+
+u: DESIGN ($informatics=3 !$design) Wie sehr macht es dir Spaß, Sachen zu gestalten?
+	#! Viel Spaß.
+	a: (~like_strong) $design=3
+	#! geht so
+	a: (~like_ok) $design=2
+	#! Vielleicht ein bisschen.
+	a: (~like_a_bit) $design=1
+	# überhaupt nicht
+	a: (~like_not) $design=0
+	a: () Das hab ich nicht ganz verstanden. ^retry(TOPRULE)
+
+u: CREATIVE ($informatics=3 !$creative) Bist du sehr kreativ?
+	a: (~like_strong) $creative=3
+	a: (~like_ok) $creative=2
+	a: (~like_a_bit) $lancreativeguages=1
+	a: (~like_not) $creative=0
+	a: () Das hab ich nicht ganz verstanden. ^retry(TOPRULE)
+
+
+u: (!$study_result !$study_result_2) Mhm, wenn dir nichts davon zusagt, dann solltest du nocheinmal überlegen, 
+ob Informatik das Richtige für dich ist.
+
+u: ($study_result !$study_result_2) Mal sehen... Ich denke zu deinen Interessen passt $study_result am ehesten. Möchtest du mehr über $study_result erfahren?
+	a: (~yes $study_result=Interaktive_Medien) ^respond(~interactive_media) 
+	a: (~yes $study_result=Informatik) ^respond(~informatics) 
+
+u: ($study_result $study_result_2) Mal sehen... $study_result könnte zu dir passen. 
+Alternativ habe ich noch $study_result_2 im Angebot. Über welchen Studiengang würdest du gerne mehr wissen?
+
+
+# t: tech is $tech, logical_thinking is $logical_thinking, concepts is $concepts, languages is $languages, result is $study_result, result2 is $study_result_2.

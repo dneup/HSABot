@@ -1,0 +1,15 @@
+topic: ~conclusion keep repeat [~emothanks ~emogoodbye danke dankeschön "vielen dank" tschüss ciao tschau "man sieht sich" "bis dann" "auf wiedersehen"] 
+
+u: ([~emothanks danke dankeschön "vielen dank"]) Hast du noch eine Frage? # [ok danke mhm "na dann"]
+	a: (~no $study_result $study_result_2) Alles klar. Wenn du möchtest kannst du dich ja noch weiter über $study_result 
+	informieren, oder alternativ über $study_result_2. Ich wünsche dir noch einen schönen Tag.
+	a: (~no $study_result) Alles klar. Wenn du möchtest kannst du dich ja noch weiter über $study_result informieren. 
+	Ich wünsche dir noch einen schönen Tag.
+	a: (~no) Alles klar. Viele Dank für das Gespräch!
+	a: (~yes) Ich bin ganz Ohr!	
+	
+
+u: ([~emogoodbye tschüss ciao tschau "man sieht sich" "bis dann" "auf wiedersehen"] $name) Hoffentlich sieht man sich mal wieder, $name!
+u: ([~emogoodbye tschüss ciao tschau "man sieht sich" "bis dann" "auf wiedersehen"]) Hoffentlich sieht man sich mal wieder!
+
+# t: Schluss

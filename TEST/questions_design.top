@@ -1,0 +1,71 @@
+topic: ~questions_design repeat []
+
+u: ($tech $spatial_thinking $logical_thinking $concepts [$design=3 $creative=3]) $study_result= Kommunikationsdesign
+u: ($logical_thinking $concepts [$design=3 $creative=3] $tech>=1 $spatial_thinking>=2) $study_result= Architektur
+u: ($tech $spatial_thinking [$design=3 $creative=3] $logical_thinking>=2 $concepts>=1) $study_result= Interaktive_Medien
+
+
+u: ($study_result=Kommunikationsdesign $logical_thinking>=1 ) $study_result_2= Interaktive_Medien 
+u: ($study_result=Kommunikationsdesign $spatial_thinking>=1) $study_result_2= Architektur
+
+u: ($study_result=Architektur) $study_result_2= Kommunikationsdesign
+u: ($study_result=Architektur $tech>=2) $study_result2= Bauingenieurwesen
+
+u: ($study_result=Interaktive_Medien $tech>=2) $study_result_2= Informatik
+u: ($study_result=Interaktive_Medien $tech<=1) $study_result_2= Kommunikationsdesign
+
+
+u: TECH ([$design=3 $creative=3] !$tech) Wie sehr interessierst du dich für Technik? (Sehr, geht so, wenig, gar nicht) 
+	#! sehr
+	a: (~like_strong) $tech=3
+	#! geht
+	a: (~like_ok) $tech=2
+	#! Ein bisschen
+	a: (~like_a_bit) $tech=1
+	#! gar nicht
+	a: (~like_not) $tech=0
+	#! Weiß ich nicht
+	a: () Das hab ich nicht ganz verstanden. ^retry(TOPRULE)
+
+u: SPATIAL_THINKING ([$design=3 $creative=3] !$spatial_thinking) Ist dein räumliches Vorstellungsvermögen gut?
+	#! ziemlich.
+	a: (~like_strong) $spatial_thinking=3
+	#! mittel
+	a: (~like_ok) $spatial_thinking=2
+	#! nicht so
+	a: (~like_a_bit) $spatial_thinking=1
+	#! null
+	a: (~like_not) $spatial_thinking=0
+	a: () Das hab ich nicht ganz verstanden. ^retry(TOPRULE)
+
+u: LOGICAL_THINKING ([$design=3 $creative=3] !$logical_thinking) Wie sehr liegt dir logisches Denken?
+	#! Sehr.
+	a: (~like_strong) $logical_thinking=3
+	#! geht so
+	a: (~like_ok) $logical_thinking=2
+	#! Vielleicht ein bisschen.
+	a: (~like_a_bit) $logical_thinking=1
+	# überhaupt nicht
+	a: (~like_not) $logical_thinking=0
+	a: () Das hab ich nicht ganz verstanden. ^retry(TOPRULE)
+
+u: CONCEPTS ([$design=3 $creative=3] !$concepts) Wie sehr macht es dir Spaß, Konzepte zu entwickeln?
+	#! Viel Spaß.
+	a: (~like_strong) $concepts=3
+	a: (~like_ok) $concepts=2
+	a: (~like_a_bit) $concepts=1
+	a: (~like_not) $concepts=0
+	a: () Das hab ich nicht ganz verstanden. ^retry(TOPRULE)
+
+
+u: (!$study_result !$study_result_2) Mhm, wenn dir nichts davon zusagt, dann solltest du nocheinmal überlegen, 
+ob Gestaltung das Richtige für dich ist. $on=true
+
+u: ($study_result !$study_result_2) Mal sehen... Ich denke zu deinen Interessen passt $study_result am ehesten. 
+Möchtest du mehr über $study_result erfahren? $on=true 
+
+u: ($study_result $study_result_2) Mal sehen... $study_result könnte zu dir passen. 
+Alternativ habe ich noch $study_result_2 im Angebot. Über welchen Studiengang würdest du gerne mehr wissen? $on=true
+
+
+# t: tech is $tech, logical_thinking is $logical_thinking, concepts is $concepts, spatial_thinking is $spatial_thinking, result is $study_result, result2 is $study_result_2.

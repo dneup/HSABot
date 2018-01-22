@@ -1,0 +1,24 @@
+topic: ~questions_interests keep repeat []
+
+#! Ich finde Wirtschaft ganz interessant.
+u: (wirtschaft) $economics=3 ^respond(~questions_economics) 
+
+#! Mich würde Informatik interessieren.
+u: (informatik) $informatics=3 ^respond(~questions_informatics) 
+
+#! Gestaltung wäre etwas für mich.
+u: (gestaltung) $design=3 ^respond(~questions_design) 
+u: (kreativ) $creative=3 ^respond(~questions_design) 
+
+#! Ich weiß es nicht.
+u: (<<weiß nicht>>) Du musst mir schon eine grobe Richtung nennen, zum Beispiel Wirtschaft oder Informatik!
+
+u: ($second_subject) Das hab ich nicht ganz verstanden. ^respond(SECOND_SUBJECT)
+
+u: SECOND_SUBJECT ($study_result $asked_for_subject=true) $second_subject=true Gibt es noch eine andere Fachrichtung, in der du dir vorstellen kannst, zu studieren? 
+
+u: ($asked_for_subject !$second_subject) Das hab ich nicht ganz verstanden. ^respond(SUBJECT)
+
+u: SUBJECT (!$study_result)  $asked_for_subject=true In welcher Fachrichtung möchtest du studieren? 
+
+

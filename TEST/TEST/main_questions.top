@@ -1,0 +1,5 @@
+topic: ~main_questions keep()
+
+u: (<<was studieren>>) ^respond(~question_talents)
+
+t: main_questions

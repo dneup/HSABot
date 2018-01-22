@@ -1,0 +1,18 @@
+topic: ~introductions  keep repeat()
+
+t: Hallo!
+
+u: (~emohello) Wie heißt du?
+	#! Ich bin Tom.
+	a: USER_NAME ([sein bin] _*1 >) $name = '_0 Freut mich dich kennenzulernen, _0. Wie kann ich dir helfen?
+	#! Ich heiße Tom.
+	a: (ich heiße _*1 >) ^reuse(USER_NAME)
+	#! Mein Name ist Tom.
+	a: (mein name [sein ist] _*1 > ) $name = '_0 ^reuse(USER_NAME)
+	#! Tom.
+	a: ( < _*1 > ) $name = '_0 ^reuse(USER_NAME)	 
+	#! Will ich nicht sagen.
+	a: NO_NAME (<<[wissen sagen angeben]  nicht>>) Ok, dann nicht. Kann ich dir trotzdem irgendwie helfen?
+
+
+

@@ -1,0 +1,42 @@
+topic: ~studies (studium studieren) 
+
+u: (<<was studieren>>) Das kommt auf deine Stärken und Schwächen an. Interessiert dich die Wirtschaft?
+	a: (~yes) Ja, das dachte ich mit schon. Wie stehts mit Technik? Interessiert dich das?
+	$economics=true 
+		b: (~yes) Damit können wir etwas anfangen! Macht es dir Spaß, eine Sprache zu Lernen?
+		$tech=true
+			c: (~yes) Dann habe ich etwas für dich: Internationales Wirtschaftsingeneurwesen.
+			$languages=true
+			c: (~no) Dann habe ich etwas für dich: Wirtschaftinformatik.
+			$languages=false
+		b: (~no) Dann also keine Technik. Liegen dir Sprachen vielleicht mehr?
+			c: (~yes) Dann habe ich etwas für dich: International Management.
+			$languages=true
+			c: (~no) Dann habe ich etwas für dich: BWL.
+			$languages=false
+	a: (~no) Mhm, ok. Wie sieht es mit logischem Denken aus? Liegt dir das? 
+	$economics=false 
+		b: (~yes) Damit können wir etwas anfangen! Macht dir Gestaltung Spaß?
+		$logicalThinking=true
+			c: (~yes) Dann habe ich etwas für dich: Interaktive Medien.
+			$design=true
+			c: (~no) Dann habe ich etwas für dich: Informatik.
+			$design=false
+		b: (~no) Auch nicht? Mal sehen... Hast du ein gutes räumliches Vorstellungsvermögen?
+		$logicalThinking=false
+			c: (~yes) Dann habe ich etwas für dich: Architektur.
+			$spatialThinking=true
+			c: (~no) Dann habe ich etwas für dich: Kommunikationsdesign.
+			$spatialThinking=false
+
+
+
+t: Economics ist $economics.
+
+u: (<<soll studieren>>) Wenn du Freude am Lernen hast und eine Hochschulzugangsberechtigung spricht nichts dagegen. 
+
+u: (<< [universität uni] oder [fh hs hochschule]>>) Bist du eher praktisch veranlagt?
+	a: (~yes) Dann könnte eine Fachhochschule das Beste für dich sein.
+	a: (~no) Dann könnte eine Universität das Beste für dich sein.
+	a: ([(<<wissen nicht>>) "keine ahnung"]) In einer Universität sind Vorlesungen eher theoriebezogen, 
+	an einer Hochschule gibt es eher praktischen Unterricht.

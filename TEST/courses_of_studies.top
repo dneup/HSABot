@@ -1,0 +1,6 @@
+topic: ~courses_of_studies keep repeat (~studies)
+
+u: (~studies) Möchtest wissen, welcher Studiengang zu dir passt? 
+	a: (~yes) ^respond(~questions_interests)
+
+t: Wusstest du, dass es 37 Studiengänge an der Hochschule Augsburg gibt?

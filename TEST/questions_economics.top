@@ -1,0 +1,74 @@
+topic: ~questions_economics repeat []
+
+u: ($economics=3 [$logical_thinking<2 $tech<2] $languages<2 $concepts>=1) $study_result= BWL
+u: ($concepts $economics=3 [$logical_thinking<2 $tech<2] $languages>=2) $study_result= International_Management
+u: ($concepts $languages $economics=3 $logical_thinking>=2 $tech>=2) $study_result= Wirtschaftsinformatik
+u: ($logical_thinking $concepts $economics=3 $tech>=2 $languages>=2 ) $study_result= Internationales_Wirtschaftsingenieurwesen
+
+
+u: ($study_result=Wirtschaftsinformatik $languages>=1) $study_result_2= Internationales_Wirtschaftsingenieurwesen 
+u: ($study_result=Wirtschaftsinformatik $languages<1) $study_result_2= BWL
+
+u: ($study_result=BWL $languages>=1) $study_result2= International_Management
+u: ($study_result=BWL $logical_thinking>=1 $tech<1) $study_result_2= Wirtschaftsinformatik
+u: ($study_result=BWL $logical_thinking<1 $tech>=1) $study_result_2= Internationales_Wirtschaftsingenieurwesen 
+
+u: ($study_result=International_Management [$logical_thinking>=1 $tech>=1]) $study_result_2= Internationales_Wirtschaftsingenieurwesen
+
+u: ($study_result=Internationales_Wirtschaftsingenieurwesen $logical_thinking<1) $study_result_2= International_Management
+u: ($study_result=Internationales_Wirtschaftsingenieurwesen $logical_thinking>=1) $study_result_2= Wirtschaftsinformatik
+
+
+u: TECH ($economics=3 !$tech) Wie sehr interessierst du dich für Technik? (Sehr, geht so, wenig, gar nicht) # Antwort die Eingabe aufgreift?
+	#! sehr
+	a: (~like_strong) $tech=3
+	#! geht
+	a: (~like_ok) $tech=2
+	#! Ein bisschen
+	a: (~like_a_bit) $tech=1
+	#! gar nicht
+	a: (~like_not) $tech=0
+	#! Weiß ich nicht
+	a: () Das hab ich nicht ganz verstanden. ^retry(TOPRULE)
+
+u: LOGICAL_THINKING ($economics=3 !$logical_thinking) Wie stehts mit logischem Denken? Wie sehr liegt dir das?
+	#! ziemlich.
+	a: (~like_strong) $logical_thinking=3
+	#! mittel
+	a: (~like_ok) $logical_thinking=2
+	#! wenig
+	a: (~like_a_bit) $logical_thinking=1
+	#! null
+	a: (~like_not) $logical_thinking=0
+	a: () Das hab ich nicht ganz verstanden. ^retry(TOPRULE)
+
+u: CONCEPTS ($economics=3 !$concepts) Wie sehr macht es dir Spaß, Konzepte zu entwickeln?
+	#! Viel Spaß.
+	a: (~like_strong) $concepts=3
+	#! geht so
+	a: (~like_ok) $concepts=2
+	#! Vielleicht ein bisschen.
+	a: (~like_a_bit) $concepts=1
+	# überhaupt nicht
+	a: (~like_not) $concepts=0
+	a: () Das hab ich nicht ganz verstanden. ^retry(TOPRULE)
+
+u: LANGUAGES ($economics=3 !$languages) Okay. Jetzt will ich nur noch wissen, wie gerne du Sprachen lernst?
+	a: (~like_strong) $languages=3
+	a: (~like_ok) $languages=2
+	a: (~like_a_bit) $languages=1
+	a: (~like_not) $languages=0
+	a: () Das hab ich nicht ganz verstanden. ^retry(TOPRULE)
+
+
+u: (!$study_result !$study_result_2) Mhm, wenn dir nichts davon zusagt, dann solltest du nocheinmal überlegen, 
+ob Wirtschaft das Richtige für dich ist.
+
+u: ($study_result !$study_result_2) Mal sehen... Ich denke zu deinen Interessen passt $study_result am ehesten. 
+Möchtest du mehr über $study_result erfahren?
+
+u: ($study_result $study_result_2) Mal sehen... $study_result könnte zu dir passen. 
+Alternativ habe ich noch $study_result_2 im Angebot. Über welchen Studiengang würdest du gerne mehr wissen?
+
+
+# t: tech is $tech, logical_thinking is $logical_thinking, concepts is $concepts, languages is $languages, result is $study_result, result2 is $study_result_2.
