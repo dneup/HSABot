@@ -1,9 +1,0 @@
-topic: ~sort_of_university (universität)
-
-t: universität.
-
-u: (<< [universität uni] oder [fh hs hochschule]>>) Bist du eher praktisch veranlagt? # Problem: uni und fh ist nocht das gleiche, oder?
-	a: (~yes) Dann könnte eine Fachhochschule das Beste für dich sein.
-	a: (~no) Dann könnte eine Universität das Beste für dich sein.
-	a: ([(<<wissen nicht>>) "keine ahnung"]) In einer Universität sind Vorlesungen eher theoriebezogen, 
-	an einer Hochschule gibt es eher praktischen Unterricht.
