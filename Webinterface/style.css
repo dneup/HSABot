@@ -1,0 +1,111 @@
+/* Hochschulrot: #F00145;
+  Hochschuleorange: #F59305;
+*/
+
+#responseHolder{
+	overflow-y: auto;
+	padding-top: 90px; 
+  padding-bottom: 50px;
+}
+
+.xdebug-error.xe-notice{    	
+	display: none;
+}
+
+.header{	
+	position: fixed;
+	width: 100%;
+  text-align: center;
+	padding-top: 20px;
+  height: 50px;
+  color: #fff;
+  background-color: #F00145;
+  font-weight:bold;
+  font-size: 24px;    
+}
+
+.chatbot{
+  background: #ddd;
+  color: #333;
+  float: left;
+  margin-left: 10px;
+  margin-right: 50px;
+}
+
+.user{
+  float: right;
+  background: #F59305;
+  color: #fff;
+  margin-right: 10px;
+  margin-left: 50px;
+}
+
+.container{	
+  border-right: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+	margin: 0 auto;
+	width: 70%;
+  min-height: 100vh;
+}
+
+.msgInputFrom {	
+  width: 70%;
+	position: fixed;
+  bottom: 0;
+  padding-bottom: 20px;
+  height: 2em;
+}
+
+
+#txtMessage{
+  margin-left: 17%;
+  width:60%;
+	height: 30px;
+	margin-bottom: 20px;
+	color: #333;
+	background-color: #eee;
+	border: 2px solid #bbb;
+	border-radius: 5px;
+	/*float: left;*/	
+}
+
+#txtMessage:focus{
+	border: 1px solid #F59305;
+}
+
+#sendButton{
+	/*width: 15%;
+	float:right;*/
+	display:none;
+}
+
+ul li{
+  display:inline-block;
+  clear: both;
+  padding: 20px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+
+ul{
+  list-style: none;
+  padding: 0px;
+  margin-top: 0px;
+}
+
+img{
+  max-width:100%;
+  max-height: 100%;
+}
+
+a {
+  color: #F00145;
+  text-decoration: none;
+}
+
+body {
+	background-color: #eee;
+	font-family: Helvetica, Arial, sans-serif;
+	margin-top: 0px;
+  font-size: 18px;
+}
