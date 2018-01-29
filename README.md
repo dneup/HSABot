@@ -22,9 +22,8 @@ To use the prototype on the command promt on Windows:
 </br>
 To use the prototype on the command promt on a Mac:
 
-* Open command promt and run .../ChatScript/BINARIES/MacChatScript local   
+* Open command promt and run .../ChatScript/BINARIES/MacChatScript local language=german
 </br>
-
 </br>
 
 To use the prototype in the browser on Windows:
@@ -43,7 +42,7 @@ To use the prototype in the browser on Windows:
 
 To use the prototype in the browser on a Mac:
 
-*  Open command promt and run .../ChatScript/BINARIES/MacChatScript
+*  Open command promt and run .../ChatScript/BINARIES/MacChatScript language=german
 
 * Install [Xampp-Server](https://www.apachefriends.org/de/index.html) (or something similar)
 
