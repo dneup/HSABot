@@ -12,6 +12,7 @@ To use the prototype download [ChatScript](https://github.com/bwilcox-1234/ChatS
 * Follow the instruction on [this site](http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/) to install the german TreeTagger.
 
 
+
 To use the prototype on the command promt on Windows:
 
 * Open command promt and go to C:...\ChatScript\BINARIES 
@@ -19,9 +20,11 @@ To use the prototype on the command promt on Windows:
 * Run `ChatScript language=german`
 
 
+
 To use the prototype on the command promt on a Mac:
 
 * Open command promt and run .../ChatScript/BINARIES/MacChatScript local 
+
 
 
 
@@ -36,6 +39,7 @@ To use the prototype in the browser on Windows:
 * Start the Wamp-Server.
 
 * Go to http://127.0.0.1/
+
 
 
 To use the prototype in the browser on a Mac:
